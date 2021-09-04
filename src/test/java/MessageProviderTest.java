@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Arrays;
 import java.util.List;
@@ -34,5 +36,12 @@ class MessageProviderTest {
     void conditionalTest(){
         Assumptions.assumeTrue(2 > 4);
         System.out.println("this should not be seen/executed");
+    }
+
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 4, 5, 6})
+    void parametrizedTest(int param){
+        Assertions.assertEquals(param, param);
     }
 }
