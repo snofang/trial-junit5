@@ -1,7 +1,4 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +17,7 @@ class MessageProviderTest {
     /**
      * should not stop on one failure and continue on assertions all.
      */
+    @Test
     void multipleAssertionSample(){
         List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
         Assertions.assertAll(() -> Assertions.assertEquals(1, integers.get(0)),
@@ -27,5 +25,14 @@ class MessageProviderTest {
                 () -> Assertions.assertEquals(3, integers.get(2)),
                 () -> Assertions.assertEquals(4, integers.get(3)),
                 () -> Assertions.assertEquals(5, integers.get(4)));
+    }
+
+    /**
+     * It is possible to have assumption on some tests
+     */
+    @Test
+    void conditionalTest(){
+        Assumptions.assumeTrue(2 > 4);
+        System.out.println("this should not be seen/executed");
     }
 }
