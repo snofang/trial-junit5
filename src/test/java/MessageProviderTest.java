@@ -44,4 +44,11 @@ class MessageProviderTest {
     void parametrizedTest(int param){
         Assertions.assertEquals(param, param);
     }
+
+    @Test
+    void assertThrows(){
+        Assertions.assertThrows(IllegalArgumentException.class,
+                //TODO: why this is not accepted without curly braces?
+                () -> { throw new IllegalAccessException(); } );
+    }
 }
