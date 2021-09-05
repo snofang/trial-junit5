@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AppTest {
+public class JunitTests {
 
     @Test
     @DisplayName("get message test :~")

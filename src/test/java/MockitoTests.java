@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
 
-public class AppTestMockito {
+public class MockitoTests {
     @Test
     void simpleMockitoTest(){
         ArrayList mockedList = mock(ArrayList.class);
