@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import static org.mockito.Mockito.*;
 
 public class MockitoTests {
+
     @Test
-    void simpleMockitoTest(){
+    void methodStubTest(){
         ArrayList mockedList = mock(ArrayList.class);
 
         //stubbing method calls
@@ -21,8 +22,11 @@ public class MockitoTests {
         Assertions.assertThrows(IllegalArgumentException.class, () -> mockedList.get(2));
 
         //interaction verification
-        Mockito.verify(mockedList, times(1)).get(0);
-        Mockito.verify(mockedList, times(1)).get(1);
-        Mockito.verify(mockedList, times(1)).get(2);
+//        Mockito.verify(mockedList, times(1)).get(0);
+//        Mockito.verify(mockedList, times(1)).get(1);
+//        Mockito.verify(mockedList, times(1)).get(2);
+
+        //argument matcher
+        Mockito.verify(mockedList, times(3)).get(anyInt());
     }
 }
