@@ -1,3 +1,5 @@
+package com.snofang.trial.junit5;
+
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -9,9 +11,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JunitTests {
 
+    @BeforeAll
+    static void initAll(){
+        System.out.println("*** before all ***");
+    }
+
+    @BeforeEach
+    void init(){
+        System.out.println("*** before each ***");
+    }
+
     @Test
-    @DisplayName("get message test :~")
-    void getMessage() {
+    @DisplayName("simple assertions test")
+    void simpleAssertion() {
+        Assertions.assertEquals(1, 1);
+    }
+
+    @Test
+    @DisplayName("another simple assertion - disabled ")
+    @Disabled("disabled for demonstration purpose")
+    void simpleAssertionDisabled() {
         Assertions.assertEquals(1, 1);
     }
 
@@ -81,5 +100,15 @@ public class JunitTests {
         }
 
 
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("*** after each *** ");
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        System.out.println("*** after all *** ");
     }
 }
